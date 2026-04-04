@@ -98,8 +98,6 @@
     .btn-ghost::after { content: '→'; transition: transform 0.2s; }
     .btn-ghost:hover { color: var(--cream); }
     .btn-ghost:hover::after { transform: translateX(4px); }
-    .hero-macro { position: absolute; bottom: 3.5rem; right: 3.5rem; width: 200px; height: 200px; overflow: hidden; border: 1px solid rgba(200,210,200,0.2); z-index: 5; opacity: 0; animation: fadeIn 1.4s var(--ease-out) 1.2s forwards; }
-    .hero-macro::before { content: 'detail'; position: absolute; top: 0.6rem; left: 0.8rem; font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); z-index: 2; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -230,7 +228,6 @@
       .hero-photo-bg::after { background: rgba(27,35,28,0.72); }
       .hero-left { background: transparent; padding: 7rem 2rem 4rem; }
       .hero-left::after { display: none; }
-      .hero-macro { display: none; }
       .intro-inner, .intro-body { grid-template-columns: 1fr; gap: 1.5rem; }
       .diff-grid { grid-template-columns: 1fr; }
       .diff-card { border-right: none; border-bottom: 1px solid rgba(200,210,200,0.12); }
@@ -279,9 +276,6 @@
         <a href="#interest" class="btn-primary">Join the Interest List</a>
         <a href="#plants" class="btn-ghost">See the plants</a>
       </div>
-    </div>
-    <div class="hero-macro">
-      <img src="img/macro-leaf.jpg" alt="Close-up detail of Japanese maple leaf veining" width="4032" height="3024" />
     </div>
   </section>
 
