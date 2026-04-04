@@ -4,6 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Form & Foliage Gardens — Seed-Grown Japanese Maples · Pacific Northwest</title>
+  <meta name="description" content="Seed-grown Japanese maples and specialty ornamental plants from the Pacific Northwest. Every tree is genetically unique — a piece of future art. Join our interest list to find yours." />
+  <!-- TODO: Update canonical URL once final domain is set -->
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Form & Foliage Gardens — Seed-Grown Japanese Maples" />
+  <meta property="og:description" content="Every tree is genetically unique. Seed-grown Japanese maples and specialty ornamental plants from the Pacific Northwest." />
+  <meta property="og:image" content="img-variegated-maple.jpg" />
+  <!-- TODO: Update og:url once final domain is set -->
+  <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Form & Foliage Gardens",
+    "description": "Seed-grown Japanese maples and specialty ornamental plants in the Pacific Northwest.",
+    "areaServed": "Pacific Northwest",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "WA",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2c-.5 2-2.5 4-5 5.5 1.5.5 3 1.5 3.5 3-2-1-4.5-1.5-7.5-.5 2 1 3.5 3 3.5 5.5-2-1.5-4.5-2-7-1.5 3 1.5 5 4 5.5 7l1 0c.5-3 2.5-5.5 5.5-7-2.5-.5-5 0-7 1.5 0-2.5 1.5-4.5 3.5-5.5-3-1-5.5-.5-7.5.5.5-1.5 2-2.5 3.5-3C10.5 6 8.5 4 8 2c2.5 1 5.5 1 8 0 2.5 1 5.5 1 8 0z' fill='%238c3328'/%3E%3Crect x='15' y='18' width='2' height='12' rx='1' fill='%238c3328'/%3E%3C/svg%3E" />
+  <!-- TODO: Futura PT — add Adobe Fonts embed snippet here once kit URL is provided. The --sans CSS variable is ready to use it. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
@@ -42,10 +67,16 @@
     .nav-logo { font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
     .nav-logo .amp { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--maple); letter-spacing: 0; margin: 0 0.05em; }
     .nav-links { display: flex; gap: 2.6rem; list-style: none; }
+    .nav-mobile-cta { display: none; }
     .nav-links a { font-size: 0.62rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s; }
     .nav-links a:hover { opacity: 1; }
     .nav-cta { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.65rem 1.5rem; border: 1px solid rgba(27,35,28,0.5); transition: background 0.25s, color 0.25s, border-color 0.25s; }
     .nav-cta:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     /* HERO */
     #hero { min-height: 100vh; position: relative; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
@@ -154,6 +185,8 @@
     .field input, .field select, .field textarea { background: var(--cream); border: 1px solid rgba(27,35,28,0.15); padding: 0.85rem 1rem; font-family: var(--sans); font-size: 0.9rem; color: var(--ink); font-weight: 300; outline: none; -webkit-appearance: none; width: 100%; transition: border-color 0.2s; border-radius: 0; }
     .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--sage); }
     .field textarea { resize: vertical; min-height: 100px; }
+    fieldset { border: 0; margin: 0; padding: 0; }
+    fieldset legend { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem; }
     .check-group { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.3rem; }
     .check-group label { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-size: 0.88rem; font-weight: 300; letter-spacing: 0; text-transform: none; color: var(--ink); }
     .check-group input[type="checkbox"] { width: 15px; height: 15px; border: 1px solid rgba(27,35,28,0.25); flex-shrink: 0; accent-color: var(--sage); }
@@ -178,8 +211,17 @@
 
     /* RESPONSIVE */
     @media (max-width: 800px) {
-      nav, nav.scrolled { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
+      nav, nav.scrolled { padding: 1rem 1.5rem; flex-wrap: wrap; }
+      .nav-toggle { display: block; order: 3; }
+      .nav-cta { display: none; }
+      .nav-links { display: none; flex-direction: column; width: 100%; order: 4; gap: 0; padding: 1.5rem 0 0.5rem; }
+      .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid rgba(27,35,28,0.07); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { font-size: 0.72rem; opacity: 0.8; }
+      .nav-links.open { display: flex; }
+      nav:has(.nav-links.open) { background: rgba(244,239,230,0.97); backdrop-filter: blur(14px); }
+      .nav-links .nav-mobile-cta { display: block; }
+      .nav-links .nav-mobile-cta a { color: var(--maple); font-weight: 500; opacity: 1; }
       .container { padding: 0 1.5rem; }
       #hero { grid-template-columns: 1fr; }
       .hero-photo-bg { left: 0; }
@@ -213,12 +255,14 @@
 
   <nav id="nav">
     <a href="#hero" class="nav-logo">Form <span class="amp">&</span> Foliage</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#plants">The Plants</a></li>
       <li><a href="#story">Our Story</a></li>
       <li><a href="#find-us">Find Us</a></li>
+      <li class="nav-mobile-cta"><a href="#interest">Interest List</a></li>
     </ul>
     <a href="#interest" class="nav-cta">Interest List</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 
   <section id="hero">
@@ -287,7 +331,7 @@
       </div>
       <div class="plants-grid">
         <div class="plant-card plant-card--hero reveal">
-          <div class="plant-photo"><img src="img-variegated-maple.jpg" alt="Variegated Japanese maple with pink, cream, and green reticulated foliage" /></div>
+          <div class="plant-photo"><img src="img-variegated-maple.jpg" alt="Variegated Japanese maple with pink, cream, and green reticulated foliage" loading="lazy" /></div>
           <div class="plant-info">
             <p class="plant-tag">Seed-Grown &middot; Acer palmatum</p>
             <h3 class="plant-name">Variegated <em>&amp; Reticulated</em> Forms</h3>
@@ -295,7 +339,7 @@
           </div>
         </div>
         <div class="plant-card plant-card--medium reveal reveal-delay-1">
-          <div class="plant-photo"><img src="img-macro-leaf.jpg" alt="Extreme close-up of deeply lobed Japanese maple leaf showing crimson veining and texture" /></div>
+          <div class="plant-photo"><img src="img-macro-leaf.jpg" alt="Extreme close-up of deeply lobed Japanese maple leaf showing crimson veining and texture" loading="lazy" /></div>
           <div class="plant-info">
             <p class="plant-tag">Seed-Grown &middot; Acer palmatum</p>
             <h3 class="plant-name">Deeply Lobed <em>Red Forms</em></h3>
@@ -303,7 +347,7 @@
           </div>
         </div>
         <div class="plant-card plant-card--third reveal">
-          <div class="plant-photo"><img src="img-maple-pot-1.jpg" alt="Young salmon-pink Japanese maple seedling in a nursery container" /></div>
+          <div class="plant-photo"><img src="img-maple-pot-1.jpg" alt="Young salmon-pink Japanese maple seedling in a nursery container" loading="lazy" /></div>
           <div class="plant-info">
             <p class="plant-tag">Seed-Grown &middot; Young Stock</p>
             <h3 class="plant-name"><em>Young</em> Specimens</h3>
@@ -311,7 +355,7 @@
           </div>
         </div>
         <div class="plant-card plant-card--third reveal reveal-delay-1">
-          <div class="plant-photo"><img src="img-maple-pot-2.jpg" alt="Cream and chartreuse Japanese maple with pink-edged foliage in nursery pots" /></div>
+          <div class="plant-photo"><img src="img-maple-pot-2.jpg" alt="Cream and chartreuse Japanese maple with pink-edged foliage in nursery pots" loading="lazy" /></div>
           <div class="plant-info">
             <p class="plant-tag">Seed-Grown &middot; Acer palmatum</p>
             <h3 class="plant-name">Green <em>&amp; Cream</em> Forms</h3>
@@ -319,7 +363,7 @@
           </div>
         </div>
         <div class="plant-card plant-card--third reveal reveal-delay-2">
-          <div class="plant-photo"><img src="img-rhododendron.jpg" alt="Hand-propagated rhododendron with vibrant pink blooms and glossy leaves" /></div>
+          <div class="plant-photo"><img src="img-rhododendron.jpg" alt="Hand-propagated rhododendron with vibrant pink blooms and glossy leaves" loading="lazy" /></div>
           <div class="plant-info">
             <p class="plant-tag">Hand-Propagated &middot; Specialty</p>
             <h3 class="plant-name"><em>Specialty</em> Ornamentals</h3>
@@ -332,7 +376,7 @@
 
   <section id="story">
     <div class="story-photo reveal">
-      <img src="img-fall-tree.jpg" alt="Specialty broadleaf tree in peak autumn color with morning rain" />
+      <img src="img-fall-tree.jpg" alt="Specialty broadleaf tree in peak autumn color with morning rain" loading="lazy" />
     </div>
     <div class="story-copy-wrap">
       <div class="story-copy">
@@ -387,14 +431,15 @@
           <p class="reveal reveal-delay-3">Share what you're hoping to find and where you're located. We'll reach out when we have something that fits, or let you know when to find us at a market near you.</p>
         </div>
         <div class="reveal reveal-delay-1">
-          <form id="interest-form">
+          <!-- TODO: Replace YOUR_FORM_ID with your Formspree form ID (create one at https://formspree.io) -->
+          <form id="interest-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div class="form-grid">
               <div class="field"><label for="fname">First Name</label><input type="text" id="fname" name="fname" placeholder="Jane" required /></div>
               <div class="field"><label for="lname">Last Name</label><input type="text" id="lname" name="lname" placeholder="Smith" /></div>
               <div class="field full"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="jane@example.com" required /></div>
               <div class="field full"><label for="location">Your City or Neighborhood</label><input type="text" id="location" name="location" placeholder="e.g. Issaquah, Capitol Hill, Redmond..." /></div>
-              <div class="field full">
-                <label>I'm interested in</label>
+              <fieldset class="field full">
+                <legend>I'm interested in</legend>
                 <div class="check-group">
                   <label><input type="checkbox" name="interest" value="variegated" /> Variegated &amp; reticulated maples</label>
                   <label><input type="checkbox" name="interest" value="red-forms" /> Red &amp; deeply lobed forms</label>
@@ -402,7 +447,7 @@
                   <label><input type="checkbox" name="interest" value="dwarf" /> Dwarf &amp; compact maples</label>
                   <label><input type="checkbox" name="interest" value="specialty" /> Specialty ornamental plants</label>
                 </div>
-              </div>
+              </fieldset>
               <div class="field full"><label for="notes">Tell us more about what you're looking for</label><textarea id="notes" name="notes" placeholder="e.g. I want something with strong fall color under 10 feet, for a shaded corner of my garden..."></textarea></div>
               <div class="submit-row">
                 <button type="submit" class="btn-submit">Send My Interest</button>
@@ -410,7 +455,7 @@
               </div>
             </div>
           </form>
-          <div class="form-success" id="form-success">
+          <div class="form-success" id="form-success" aria-live="polite">
             <p>Thank you &mdash; we'll reach out when we have something right for you.</p>
           </div>
         </div>
@@ -442,7 +487,31 @@
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
     const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    document.getElementById('interest-form').addEventListener('submit', function(e) { e.preventDefault(); this.style.display = 'none'; document.getElementById('form-success').style.display = 'block'; });
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    navToggle.addEventListener('click', function() {
+      var open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open);
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
+
+    document.getElementById('interest-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var data = new FormData(form);
+      fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function(r) { if (r.ok) { form.style.display = 'none'; document.getElementById('form-success').style.display = 'block'; } })
+        .catch(function() { form.style.display = 'none'; document.getElementById('form-success').style.display = 'block'; });
+    });
   </script>
 </body>
 </html>
