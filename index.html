@@ -216,6 +216,24 @@
     .footer-bottom { border-top: 1px solid rgba(196,208,196,0.1); margin-top: 3.5rem; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
     .footer-copy, .footer-location { font-size: 0.68rem; color: rgba(196,208,196,0.3); }
 
+    /* FAQ */
+    #faq { padding: 7rem 0; background: var(--cream); }
+    .faq-inner { display: grid; grid-template-columns: 280px 1fr; gap: 6rem; align-items: start; }
+    .faq-label { position: sticky; top: 7rem; }
+    .faq-list { border-top: 1px solid rgba(27,35,28,0.1); }
+    .faq-item { border-bottom: 1px solid rgba(27,35,28,0.1); }
+    .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 1.8rem 0; background: none; text-align: left; font-family: var(--serif); font-size: clamp(1.1rem, 1.5vw, 1.35rem); font-weight: 300; color: var(--ink); cursor: pointer; }
+    .faq-question:hover { color: var(--sage); }
+    .faq-icon { flex-shrink: 0; width: 1.2rem; height: 1.2rem; position: relative; transition: transform 0.35s var(--ease-out); }
+    .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: var(--sage); border-radius: 0; transition: opacity 0.3s, transform 0.3s; }
+    .faq-icon::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+    .faq-icon::after { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+    .faq-item.open .faq-icon::after { opacity: 0; transform: translateX(-50%) rotate(90deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.45s var(--ease-out); }
+    .faq-answer-inner { padding-bottom: 1.8rem; font-size: 0.93rem; color: var(--ink); line-height: 1.85; opacity: 0.75; max-width: 560px; }
+    .faq-answer-inner a { color: var(--sage); text-decoration: underline; text-underline-offset: 3px; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+
     /* RESPONSIVE */
     @media (max-width: 800px) {
       nav, nav.scrolled { padding: 1rem 1.5rem; flex-wrap: wrap; }
@@ -476,6 +494,56 @@
     </div>
   </section>
 
+  <section id="faq">
+    <div class="container">
+      <div class="faq-inner">
+        <div class="faq-label reveal">
+          <p class="eyebrow">Common questions</p>
+          <div class="intro-rule"></div>
+          <h2 class="display" style="font-size: clamp(1.8rem, 2.5vw, 2.6rem); margin-top: 1.2rem;">What people<br/>ask us</h2>
+        </div>
+        <div class="faq-list reveal reveal-delay-1">
+
+          <div class="faq-item">
+            <button class="faq-question">What makes seed-grown Japanese maples different from grafted ones?<span class="faq-icon"></span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Most nurseries propagate Japanese maples by grafting — cutting a branch from one tree and fusing it onto rootstock. Every grafted plant is a genetic clone of its parent. Seed-grown maples are different: each one develops its own unique genetics, meaning its leaf shape, autumn color, growth habit, and eventual silhouette are entirely its own. No two are alike. That's what makes them worth planting.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Where can I find Form & Foliage plants in person?<span class="faq-icon"></span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">We sell at the Bellevue Farmers Market and Issaquah Farmers Market on Saturdays from May through October, and at select PNW specialty plant sales throughout the year. Follow us on Instagram at <a href="https://instagram.com/formandfoliage">@formandfoliage</a> for event announcements, or join the interest list and we'll reach out when something matches what you're looking for.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Do you sell plants online or ship?<span class="faq-icon"></span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">We don't — intentionally. Every plant we grow is one of a kind, and we believe the right match matters. We'd rather connect you with the right tree in person than pack something irreplaceable into a box. Join the interest list and tell us what you're looking for; we'll follow up when we have something worth your attention.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Are your plants well-suited to the Pacific Northwest climate?<span class="faq-icon"></span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes — and that's a meaningful distinction. Our plants are grown from seed in the Pacific Northwest, which means they've never known any other climate. They're acclimated to PNW rain patterns, soil conditions, and light from day one. They won't struggle to adapt the way plants shipped from warmer, drier regions sometimes do.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">How fast do Japanese maples grow, and how big do they get?<span class="faq-icon"></span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Growth rate and ultimate size vary by type. Most Japanese maples are slow to moderate growers — typically 6–12 inches per year in good conditions. Dwarf and laceleaf forms grow more slowly. Full-size varieties can eventually reach 15–25 feet; compact and weeping forms stay much smaller. The unhurried pace is part of the appeal — these are trees you watch become something over decades.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What types of Japanese maples do you grow?<span class="faq-icon"></span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">We grow a range of Acer palmatum seedlings with an emphasis on distinctive forms: variegated and reticulated foliage, deep red and lobed leaves, laceleaf and weeping habits, and dwarf and compact specimens suitable for containers or smaller gardens. We also grow select specialty broadleaf ornamentals and rhododendrons. Because every plant is seed-grown, the exact selection changes each season.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">How do I care for a Japanese maple in the Pacific Northwest?<span class="faq-icon"></span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Japanese maples generally thrive in the PNW with minimal fuss. They prefer well-draining soil, protection from harsh afternoon sun in summer, and shelter from desiccating winter winds. Avoid heavy pruning — light shaping in late summer or dormancy is fine. Established trees are fairly drought-tolerant but appreciate supplemental water during dry stretches. Mulching the root zone helps retain moisture and moderate temperature.</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-top">
       <div>
@@ -490,7 +558,7 @@
       </ul>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2025 Form &amp; Foliage Gardens. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 Form &amp; Foliage Gardens. All rights reserved.</p>
       <p class="footer-location">Pacific Northwest, WA</p>
     </div>
   </footer>
@@ -500,6 +568,14 @@
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
     const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
     var navToggle = document.getElementById('nav-toggle');
     var navLinks = document.getElementById('nav-links');
     navToggle.addEventListener('click', function() {
