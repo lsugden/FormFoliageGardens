@@ -186,7 +186,7 @@ These have been specifically crafted and approved:
 - Hero headline: **"A hand-grown piece of future art."**
 - Intro headline: **"No nursery, no neighbor, no one has this exact tree."**
 - Story blockquote: **"You're not decorating a garden. You're starting a relationship with a living thing."**
-- Interest form heading: **"Tell us what you're looking for"**
+- Interest form heading: **"Looking for something specific?"**
 - Interest form subhead: **"Let's find your plant"**
 
 ---
