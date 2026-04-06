@@ -148,7 +148,7 @@ This is a **static site** — no build step needed. HTML/CSS/JS only. No framewo
 - ~~Meta / SEO~~ — meta description, Open Graph tags, canonical URL, LocalBusiness schema markup all in place
 - ~~Favicon~~ — `FF-icon.svg` maple leaf brand icon, also used inline in nav
 - ~~Mobile polish~~ — responsive breakpoint at 800px, FAQ accordion mobile layout, hero overlay
-- ~~Instagram link~~ — `@formandfoliage` linked in Find Us section, FAQ answers, and schema markup
+- ~~Instagram link~~ — `@formfoliagegardens` linked in Find Us section, FAQ answers, and schema markup
 - ~~Lazy loading & image attributes~~ — `loading="lazy"` on below-fold images, `width`/`height` on all images
 - ~~Accessibility basics~~ — form labels, aria-expanded/aria-live, alt text on all images, fieldset/legend for checkboxes
 - ~~FAQ section~~ — 6-item accordion targeting local/SEO queries (seed-grown vs grafted, PNW climate, etc.)
@@ -198,7 +198,7 @@ Current markets (update as needed):
 - Issaquah Farmers Market — Saturdays, May–Oct, Pickering Barn, Issaquah WA
 - PNW Plant Sales & Specialty Events — various, check Instagram
 
-Instagram handle: `@formandfoliage` (linked on site in Find Us section, FAQ, and schema markup)
+Instagram handle: `@formfoliagegardens` (linked on site in Find Us section, FAQ, and schema markup)
 
 ---
 
