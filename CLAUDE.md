@@ -44,9 +44,7 @@ Most nurseries graft Japanese maples, producing genetic clones. Form & Foliage g
 
 ### Fonts
 - **Display / Serif:** `Cormorant Garamond` (Google Fonts) — used for headlines, blockquotes, large numerals, plant names. Weight 300 (light) almost exclusively; italic for accent/emphasis.
-- **Sans-serif / UI:** `Futura PT` — used for nav, eyebrows, labels, buttons, body text. **Load via Adobe Fonts or your preferred font service.** CSS variable is `--sans` — one-line swap once the font is loaded. Fallback stack: `'Futura', 'Century Gothic', 'Trebuchet MS', system-ui, sans-serif`.
-
-> ⚠️ Futura PT is **not** on Google Fonts. It requires an Adobe Fonts embed or self-hosting. The current prototype uses the fallback stack visually — swap in the real embed when deploying.
+- **Sans-serif / UI:** `Futura PT` — used for nav, eyebrows, labels, buttons, body text. Loaded via **Adobe Fonts / TypeKit** (kit ID `kun1bou`). CSS variable is `--sans`. Fallback stack: `'Futura', 'Century Gothic', 'Trebuchet MS', system-ui, sans-serif`.
 
 ### Color Palette (CSS variables)
 ```css
@@ -89,24 +87,26 @@ All in `index.html`. Sections with `id` anchors:
 
 | Section | ID | Description |
 |---|---|---|
-| Navigation | `#nav` | Fixed, transparent → frosted glass on scroll |
-| Hero | `#hero` | Full-height, dark left panel + photo right, animated title |
+| Navigation | `#nav` | Fixed, transparent → frosted glass on scroll; FF brand icon in logo |
+| Hero | `#hero` | Full-bleed photo with dark overlay, animated title, CTA buttons |
 | Intro | `#intro` | 2-col grid: label left, copy + 2-col body text right |
-| Differentiators | `#differentiators` | Dark background, 3-card grid |
+| Differentiators | `#differentiators` | Dark background, 3-card grid (01, 02, 03) |
 | Plants | `#plants` | Photo gallery / portfolio — NO prices, NO stock |
 | Story | `#story` | Dark background, photo left + copy right, 2-col |
-| Find Us | `#find-us` | Market schedule list |
-| Interest List | `#interest` | Lead capture form — THE primary conversion goal |
+| Find Us | `#find-us` | Market schedule table with 3 locations |
+| Interest List | `#interest` | Lead capture form via FormSubmit.co — THE primary conversion goal |
+| FAQ | `#faq` | Accordion with 6 expandable Q&A items targeting local/SEO queries |
 | Footer | footer | Brand, nav links, copyright |
 
-### Image Files (keep in same directory as index.html)
+### Image Files (in `img/` directory)
 ```
-img-fall-tree.jpg        # Specialty broadleaf in autumn color w/ rain — hero BG + story panel
-img-macro-leaf.jpg       # Extreme macro of crimson maple leaf — hero corner inset + plant card
-img-variegated-maple.jpg # Variegated pink/cream/green maple — hero plant card (largest)
-img-maple-pot-1.jpg      # Salmon-pink young maple in nursery pot
-img-maple-pot-2.jpg      # Cream/green maple in nursery pot
-img-rhododendron.jpg     # Pink rhododendron — specialty plants card
+img/fall-tree.jpg            # Specialty broadleaf in autumn color w/ rain — hero BG + story panel
+img/macro-leaf.jpg           # Extreme macro of crimson maple leaf — plant card
+img/variegated-maple.jpg     # Variegated pink/cream/green maple — plant card (largest)
+img/green-japanese-maple.jpg # Green Japanese maple — plant card
+img/maple-pot-1.jpg          # Salmon-pink young maple in nursery pot
+img/maple-pot-2.jpg          # Cream/green maple in nursery pot
+img/rhododendron.jpg         # Pink rhododendron — specialty plants card
 ```
 
 ---
@@ -114,32 +114,26 @@ img-rhododendron.jpg     # Pink rhododendron — specialty plants card
 ## Hosting & Deployment
 
 ### Chosen Stack
-- **Host:** GitHub Pages (free, serves static sites directly from a repo)
-- **Domain registrar:** TBD — can configure a custom domain in GitHub Pages settings
+- **Host:** GitHub Pages — deployed, live at **https://formfoliagegardens.com**
+- **Custom domain:** `formfoliagegardens.com` (CNAME file in repo root)
 - **Deployment method:** Push to `main` → GitHub Pages auto-deploys
 
-### GitHub Pages Deployment Setup
-1. Push the repo to GitHub (public repo, or private with GitHub Pro/Team)
-2. Go to repo → Settings → Pages
-3. Under "Source", select **Deploy from a branch**
-4. Select `main` branch, `/ (root)` folder, click Save
-5. Site will be live at `https://<username>.github.io/<repo-name>/`
-6. (Optional) Add a custom domain under Settings → Pages → Custom domain
-
-> For a custom domain: add a CNAME file to the repo root containing the domain, and configure DNS records (A records or CNAME) per GitHub's docs.
-
-### Repository Structure (suggested)
+### Repository Structure
 ```
 /
 ├── index.html
-├── img-fall-tree.jpg
-├── img-macro-leaf.jpg
-├── img-variegated-maple.jpg
-├── img-maple-pot-1.jpg
-├── img-maple-pot-2.jpg
-├── img-rhododendron.jpg
+├── FF-icon.svg              # Brand icon / favicon (maple leaf)
+├── CNAME                    # Custom domain config
 ├── CLAUDE.md
-└── README.md
+├── img/
+│   ├── fall-tree.jpg
+│   ├── macro-leaf.jpg
+│   ├── variegated-maple.jpg
+│   ├── green-japanese-maple.jpg
+│   ├── maple-pot-1.jpg
+│   ├── maple-pot-2.jpg
+│   └── rhododendron.jpg
+└── .github/workflows/       # GitHub Pages deployment
 ```
 
 This is a **static site** — no build step needed. HTML/CSS/JS only. No framework, no bundler.
@@ -148,23 +142,29 @@ This is a **static site** — no build step needed. HTML/CSS/JS only. No framewo
 
 ## Refinement Priorities (What Claude Code Should Work On)
 
-### High Priority
-1. **Futura PT integration** — add Adobe Fonts embed snippet (owner will provide the kit URL) and wire to `--sans` variable
-2. **Form backend** — wire the interest list form to [Formspree](https://formspree.io) (free tier, no backend needed) or similar. Current form has a client-side success state only.
-3. **Meta / SEO** — add `<meta description>`, Open Graph tags, `<title>` refinement, basic schema markup for local business
-4. **Favicon** — create a simple botanical SVG favicon (maple leaf silhouette works)
-5. **Mobile polish** — verify all breakpoints, especially hero on iOS Safari, and the market rows on small screens
+### Completed
+- ~~Futura PT integration~~ — live via Adobe Fonts / TypeKit (kit `kun1bou`)
+- ~~Form backend~~ — wired to FormSubmit.co (`info@formfoliagegardens.com`), with JS-enhanced submit + success state
+- ~~Meta / SEO~~ — meta description, Open Graph tags, canonical URL, LocalBusiness schema markup all in place
+- ~~Favicon~~ — `FF-icon.svg` maple leaf brand icon, also used inline in nav
+- ~~Mobile polish~~ — responsive breakpoint at 800px, FAQ accordion mobile layout, hero overlay
+- ~~Instagram link~~ — `@formandfoliage` linked in Find Us section, FAQ answers, and schema markup
+- ~~Lazy loading & image attributes~~ — `loading="lazy"` on below-fold images, `width`/`height` on all images
+- ~~Accessibility basics~~ — form labels, aria-expanded/aria-live, alt text on all images, fieldset/legend for checkboxes
+- ~~FAQ section~~ — 6-item accordion targeting local/SEO queries (seed-grown vs grafted, PNW climate, etc.)
 
-### Medium Priority
-6. **Instagram embed or link** — referenced in copy but not yet implemented. Either a simple `@formandfoliage` link with icon, or an embedded feed if the owner wants it
-7. **Google Analytics or Plausible** — lightweight analytics, privacy-respecting (Plausible preferred — no cookie banner needed)
-8. **Performance** — compress/optimize the 6 JPEG images (aim for <200KB each), add `loading="lazy"` to below-fold images, add `width`/`height` attributes
-9. **Accessibility** — audit for color contrast (especially mist text on dark backgrounds), ensure all form fields have proper labels, add `aria-label` to icon-only elements
+### Remaining — High Priority
+1. **Image compression** — all JPEGs except `green-japanese-maple.jpg` are 2–6.5 MB, far above the <200KB target. Compress/optimize before the site gets real traffic.
+2. **Analytics** — no Google Analytics or Plausible installed yet. Plausible preferred (privacy-respecting, no cookie banner).
+
+### Remaining — Medium Priority
+3. **Accessibility audit** — color contrast verification needed, especially `--mist` on `--ink` and `--gold` on `--ink` backgrounds
+4. **Instagram embedded feed** — currently text links only; an embedded feed would add visual richness if the owner wants it
 
 ### Lower Priority / Future
-10. **Care guide page** — a simple `/care` subpage with Japanese maple care basics for the PNW. Good for SEO, builds authority.
-11. **Email newsletter integration** — Mailchimp or ConvertKit embed as alternative/supplement to the interest form
-12. **Print stylesheet** — for any in-person market materials that might reference the site
+5. **Care guide page** — a simple `/care` subpage with Japanese maple care basics for the PNW. Good for SEO, builds authority.
+6. **Email newsletter integration** — Mailchimp or ConvertKit embed as alternative/supplement to the interest form
+7. **Print stylesheet** — for any in-person market materials that might reference the site
 
 ---
 
@@ -183,7 +183,7 @@ This is a **static site** — no build step needed. HTML/CSS/JS only. No framewo
 
 These have been specifically crafted and approved:
 
-- Hero headline: **"A piece of future art."**
+- Hero headline: **"A hand-grown piece of future art."**
 - Intro headline: **"No nursery, no neighbor, no one has this exact tree."**
 - Story blockquote: **"You're not decorating a garden. You're starting a relationship with a living thing."**
 - Interest form heading: **"Tell us what you're looking for"**
@@ -193,12 +193,12 @@ These have been specifically crafted and approved:
 
 ## Market / Find Us Data (Update as Needed)
 
-Current placeholder markets — owner should confirm/update:
+Current markets (update as needed):
 - Bellevue Farmers Market — Saturdays, May–Oct, Downtown Bellevue WA
 - Issaquah Farmers Market — Saturdays, May–Oct, Pickering Barn, Issaquah WA
 - PNW Plant Sales & Specialty Events — various, check Instagram
 
-Instagram handle: `@formandfoliage` (confirm with owner before deploying)
+Instagram handle: `@formandfoliage` (linked on site in Find Us section, FAQ, and schema markup)
 
 ---
 
@@ -212,7 +212,7 @@ The form collects:
 - Checkboxes: Variegated maples / Red & lobed forms / Laceleaf & weeping / Dwarf & compact / Specialty ornamentals
 - Free-text notes ("Tell us more about what you're looking for")
 
-Wire to Formspree: replace `<form id="interest-form">` with `<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">` and remove the client-side submit handler (or keep it as a UI enhancement after real submission).
+Form is wired to **FormSubmit.co** (`info@formfoliagegardens.com`). JavaScript handles submission via `fetch` API with a client-side success state ("Thank you — we'll reach out when we have something right for you.").
 
 ---
 
@@ -223,4 +223,4 @@ Wire to Formspree: replace `<form id="interest-form">` with `<form action="https
 - Font weight is almost entirely `300` (light) for Cormorant — this is intentional and important to the refined feel. Don't bump to 400/500 unless there's a specific reason.
 - The grain texture is a CSS-only SVG data URI — no external dependency
 - Scroll reveal uses native `IntersectionObserver` — no library needed, works in all modern browsers
-- The site is fully self-contained in one HTML file + 6 JPEGs — no npm, no build step, no dependencies beyond Google Fonts
+- The site is fully self-contained in one HTML file + 7 JPEGs + 1 SVG icon — no npm, no build step, no dependencies beyond Google Fonts and Adobe Fonts/TypeKit
